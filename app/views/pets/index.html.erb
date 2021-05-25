@@ -1,0 +1,15 @@
+<h1>Pets</h1>
+
+<%= link_to "Novo Pet", pets_new_path, class:"btn btn-success" %>
+
+<% @pets.each do |pet| %>
+  <li>
+    <%= pet.name %> 
+    <%= pet.address %>
+    <%= pet.species %>
+    <%= pet.found_on %>
+    <%= link_to "ver", pet_path(pet), class:"btn btn-primary" %>
+    <%= link_to "edit", edit_path(pet), class:"btn btn-info" %>
+    <%= link_to "delete", pet_path(pet), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+  </li>
+<% end %>
